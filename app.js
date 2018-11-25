@@ -29,7 +29,7 @@ function win(userChoice, compChoice){
     userScore_span.innerHTML = userScore;
     const smallUserWord = "user".fontsize(3).sup();
     const smallCompWord = "comp".fontsize(3).sup();
-    result_p.innerHTML = `${convertToWords(userChoice)}${smallUserWord} beats ${convertToWords(compChoice)}${smallCompWord} . You win!`;
+    result_p.innerHTML = `${convertToWords(userChoice)} ${smallUserWord} beats ${convertToWords(compChoice)} ${smallCompWord} . You win!`;
 }
 
 function lose(compChoice, userChoice){
@@ -37,7 +37,7 @@ function lose(compChoice, userChoice){
     compScore_span.innerHTML = compScore;
     const smallUserWord = "user".fontsize(3).sup();
     const smallCompWord = "comp".fontsize(3).sup();
-    result_p.innerHTML = `${convertToWords(compChoice)}${smallCompWord} beats ${convertToWords(userChoice)}${smallUserWord} . You lost!`;
+    result_p.innerHTML = `${convertToWords(compChoice)} ${smallCompWord} beats ${convertToWords(userChoice)} ${smallUserWord} . You lost!`;
 
 }
 
