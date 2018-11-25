@@ -27,17 +27,22 @@ function convertToWords(letter) {
 function win(userChoice, compChoice){
     userScore++;
     userScore_span.innerHTML = userScore;
-    compScore_span.innerHTML = compScore;
-    result_p.innerHTML = convertToWords(userChoice) + " beats " + convertToWords(compChoice) + ". You win!";
-    console.log(userChoice);
-    console.log(compScore);
+    const smallUserWord = "user".fontsize(3).sup();
+    const smallCompWord = "comp".fontsize(3).sup();
+    result_p.innerHTML = `${convertToWords(userChoice)}${smallUserWord} beats ${convertToWords(compChoice)}${smallCompWord} . You win!`;
 }
 
-function lose(){
+function lose(compChoice, userChoice){
+    compScore++;
+    compScore_span.innerHTML = compScore;
+    const smallUserWord = "user".fontsize(3).sup();
+    const smallCompWord = "comp".fontsize(3).sup();
+    result_p.innerHTML = `${convertToWords(compChoice)}${smallCompWord} beats ${convertToWords(userChoice)}${smallUserWord} . You lost!`;
+
 }
 
 function draw(){
-    console.log("Draw");
+    result_p.innerHTML = "It's a tie!";
 }
 
 //game logic
@@ -53,7 +58,7 @@ function game(userChoice) {
         case "rp":
         case "ps":
         case "sr":
-            lose(userChoice, compChoice);
+            lose(compChoice, userChoice);
             break;
 
         case "rr":
