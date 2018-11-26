@@ -18,30 +18,34 @@ function getCompChoice() {
     return choices[randomNumber];
 }
 
-function 
-
 function convertToWords(letter) {
     if (letter === "r") return "Rock";
     if (letter === "p") return "Paper";
     if (letter === "s") return "Scissors";
 }
 
-function win(userChoice, compChoice){
-    userScore++;
-    userScore_span.innerHTML = userScore;
+function win(userChoice, compChoice){    
     const smallUserWord = "user".fontsize(3).sup();
     const smallCompWord = "comp".fontsize(3).sup();
-    result_p.innerHTML = `${convertToWords(userChoice)} ${smallUserWord} beats ${convertToWords(compChoice)} ${smallCompWord} . You win!`;
+    const userChoice_div = document.getElementById(userChoice);
+
+    userScore++;
+    userScore_span.innerHTML = userScore;
+
+    result_p.innerHTML = `${convertToWords(userChoice)} ${smallUserWord} beats ${convertToWords(compChoice)} ${smallCompWord}. You win!`;
+
+    document.getElementById(userChoice).classList.add("green-glow");
+    setTimeout(function() {userChoice_div.classList.remove('green-glow');}, 300);
 
 }
 
 function lose(compChoice, userChoice){
-    compScore++;
-    compScore_span.innerHTML = compScore;
     const smallUserWord = "user".fontsize(3).sup();
     const smallCompWord = "comp".fontsize(3).sup();
+    compScore++;
+    compScore_span.innerHTML = compScore;
+
     result_p.innerHTML = `${convertToWords(compChoice)} ${smallCompWord} beats ${convertToWords(userChoice)} ${smallUserWord} . You lost!`;
-    
     document.getElementById(userChoice).classList.add("green-glow");
 
 }
